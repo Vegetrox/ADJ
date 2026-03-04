@@ -1,4 +1,3 @@
-
 /* =====================================================
    ADJ – L'Antre du Joueur · style.css
    ===================================================== */
@@ -119,13 +118,13 @@ nav a:hover::after { width: 100%; }
 
 /* ===== HERO BANNER ===== */
 .hero {
-  min-height: 70vh;
+  min-height: 52vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 5rem 2rem 3rem;
+  padding: 5rem 2rem 0;
   position: relative;
   overflow: hidden;
   background: linear-gradient(160deg, #fdf6ec 0%, #f0e0c0 55%, #d9b98a 100%);
@@ -133,17 +132,13 @@ nav a:hover::after { width: 100%; }
 
 /* Décor bas du bandeau héro */
 .hero-antre-bg {
-  position: absolute;
-  bottom: 0;
-  left: 0;
+  display: block;
   width: 100%;
   height: auto;
-  max-height: 45%;
-  object-fit: cover;
-  object-position: top center;
-  pointer-events: none;
-  opacity: .9;
+  margin-top: 1.5rem;
+  position: relative;
   z-index: 0;
+  pointer-events: none;
 }
 
 /* SVG dés et meeples flottants */
