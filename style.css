@@ -33,7 +33,7 @@ body {
   color: var(--text);
   line-height: 1.75;
   overflow-x: hidden;
-  font-size: 1.08rem;
+  font-size: 1.15rem;
 }
 
 img { max-width: 100%; display: block; }
@@ -87,7 +87,7 @@ header.scrolled { box-shadow: 0 4px 24px var(--shadow); }
 
 nav { display: flex; gap: 2rem; align-items: center; }
 nav a {
-  font-size: .88rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--text-mid);
   letter-spacing: .06em;
@@ -118,13 +118,12 @@ nav a:hover::after { width: 100%; }
 
 /* ===== HERO BANNER ===== */
 .hero {
-  min-height: 52vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 5rem 2rem 0;
+  padding-top: 5rem;
   position: relative;
   overflow: hidden;
   background: linear-gradient(160deg, #fdf6ec 0%, #f0e0c0 55%, #d9b98a 100%);
@@ -135,10 +134,11 @@ nav a:hover::after { width: 100%; }
   display: block;
   width: 100%;
   height: auto;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   position: relative;
   z-index: 0;
   pointer-events: none;
+  opacity: 0.5;
 }
 
 /* SVG dés et meeples flottants */
@@ -180,12 +180,15 @@ nav a:hover::after { width: 100%; }
 
 .hero-sub {
   margin-top: .8rem;
-  font-size: clamp(1.05rem, 2.2vw, 1.18rem);
+  margin-bottom: .5rem;
+  font-size: clamp(1.05rem, 2.2vw, 1.25rem);
   color: var(--text-mid);
-  max-width: 560px;
+  max-width: 580px;
+  padding: 0 1rem;
   font-weight: 400;
   animation: fadeUp .9s .2s both;
-  font-family: 'Crimson Pro', serif;
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
   position: relative;
   z-index: 2;
 }
@@ -293,7 +296,7 @@ section { padding: 5.5rem 2rem; }
 }
 .section-title {
   font-family: 'Cinzel', serif;
-  font-size: clamp(1.8rem, 4vw, 2.7rem);
+  font-size: clamp(2rem, 4.5vw, 3rem);
   font-weight: 700;
   color: var(--text);
   line-height: 1.2;
