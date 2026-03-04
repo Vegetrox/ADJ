@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ADJ – L'Antre du Joueur · Valmeinier</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Cinzel:wght@400;600;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400;1,600&family=Uncial+Antiqua&display=swap" rel="stylesheet" />
+
+  <!-- Feuille de style -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header id="site-header">
+    <div class="logo">
+      <img src="images/logonbg.png" alt="L'Antre du Joueur" class="logo-img" />
+      <div class="logo-text">
+        L'Antre du Joueur
+        <small>Valmeinier · Savoie</small>
+      </div>
+    </div>
+    <nav>
+      <a href="#histoire">Histoire</a>
+      <a href="#sejours">Séjours</a>
+      <a href="#jeux">Les Jeux</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#equipe">Équipe</a>
+      <a href="#infos" class="nav-cta">Nous rejoindre</a>
+    </nav>
+    <div class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="accueil">
+
+    <!-- D20 #1 -->
+    <svg class="hero-deco" aria-hidden="true" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="40,4 76,24 76,56 40,76 4,56 4,24" stroke="#5c3d1e" stroke-width="2.5" fill="rgba(200,119,42,0.12)"/>
+      <polygon points="40,4 76,24 40,38" stroke="#5c3d1e" stroke-width="1.5" fill="rgba(200,119,42,0.08)"/>
+      <polygon points="40,4 4,24 40,38" stroke="#5c3d1e" stroke-width="1.5" fill="rgba(200,119,42,0.06)"/>
+      <polygon points="76,24 76,56 40,38" stroke="#5c3d1e" stroke-width="1.5" fill="rgba(200,119,42,0.05)"/>
+      <text x="40" y="55" text-anchor="middle" font-size="18" fill="#5c3d1e" font-family="Cinzel,serif" font-weight="700">20</text>
+    </svg>
+
+    <!-- Meeple #2 -->
+    <svg class="hero-deco" aria-hidden="true" viewBox="0 0 50 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="25" cy="12" r="9" stroke="#5c3d1e" stroke-width="2.2" fill="rgba(200,119,42,0.1)"/>
+      <path d="M10,30 Q5,22 14,20 Q18,28 25,28 Q32,28 36,20 Q45,22 40,30 L36,48 L30,48 L30,38 L20,38 L20,48 L14,48 Z" stroke="#5c3d1e" stroke-width="2" fill="rgba(200,119,42,0.1)" stroke-linejoin="round"/>
+      <path d="M14,48 L10,68 L20,68 L25,55 L30,68 L40,68 L36,48" stroke="#5c3d1e" stroke-width="2" fill="rgba(200,119,42,0.08)" stroke-linejoin="round"/>
+    </svg>
+
+    <!-- D12 #3 -->
+    <svg class="hero-deco" aria-hidden="true" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="40,4 76,24 76,56 40,76 4,56 4,24" stroke="#3a5a40" stroke-width="2.5" fill="rgba(58,90,64,0.08)"/>
+      <polygon points="40,4 76,24 40,38" stroke="#3a5a40" stroke-width="1.5" fill="rgba(58,90,64,0.06)"/>
+      <polygon points="4,24 40,38 4,56" stroke="#3a5a40" stroke-width="1.5" fill="rgba(58,90,64,0.05)"/>
+      <polygon points="76,24 76,56 40,38" stroke="#3a5a40" stroke-width="1.5" fill="rgba(58,90,64,0.04)"/>
+      <text x="40" y="55" text-anchor="middle" font-size="16" fill="#3a5a40" font-family="Cinzel,serif" font-weight="700">12</text>
+    </svg>
+
+    <!-- Meeple #4 -->
+    <svg class="hero-deco" aria-hidden="true" viewBox="0 0 50 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="25" cy="12" r="9" stroke="#a05e18" stroke-width="2.2" fill="rgba(160,94,24,0.1)"/>
+      <path d="M10,30 Q5,22 14,20 Q18,28 25,28 Q32,28 36,20 Q45,22 40,30 L36,48 L30,48 L30,38 L20,38 L20,48 L14,48 Z" stroke="#a05e18" stroke-width="2" fill="rgba(160,94,24,0.08)" stroke-linejoin="round"/>
+      <path d="M14,48 L10,68 L20,68 L25,55 L30,68 L40,68 L36,48" stroke="#a05e18" stroke-width="2" fill="rgba(160,94,24,0.06)" stroke-linejoin="round"/>
+    </svg>
+
+    <!-- D6 #5 -->
+    <svg class="hero-deco" aria-hidden="true" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="6" y="6" width="48" height="48" rx="10" stroke="#5c3d1e" stroke-width="2.5" fill="rgba(200,119,42,0.08)"/>
+      <circle cx="20" cy="20" r="4" fill="#5c3d1e"/>
+      <circle cx="40" cy="20" r="4" fill="#5c3d1e"/>
+      <circle cx="20" cy="40" r="4" fill="#5c3d1e"/>
+      <circle cx="40" cy="40" r="4" fill="#5c3d1e"/>
+    </svg>
+
+    <!-- D8 #6 -->
+    <svg class="hero-deco" aria-hidden="true" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="40,4 76,24 76,56 40,76 4,56 4,24" stroke="#5c3d1e" stroke-width="2" fill="rgba(200,119,42,0.07)"/>
+      <text x="40" y="48" text-anchor="middle" font-size="20" fill="#5c3d1e" font-family="Cinzel,serif" font-weight="700">8</text>
+    </svg>
+
+    <!-- Meeple #7 -->
+    <svg class="hero-deco" aria-hidden="true" viewBox="0 0 50 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="25" cy="12" r="9" stroke="#3a5a40" stroke-width="2" fill="rgba(58,90,64,0.1)"/>
+      <path d="M10,30 Q5,22 14,20 Q18,28 25,28 Q32,28 36,20 Q45,22 40,30 L36,48 L30,48 L30,38 L20,38 L20,48 L14,48 Z" stroke="#3a5a40" stroke-width="2" fill="rgba(58,90,64,0.08)" stroke-linejoin="round"/>
+      <path d="M14,48 L10,68 L20,68 L25,55 L30,68 L40,68 L36,48" stroke="#3a5a40" stroke-width="2" fill="rgba(58,90,64,0.06)" stroke-linejoin="round"/>
+    </svg>
+
+    <!-- Logo principal centré -->
+    <div class="hero-logo-wrap" aria-label="L'Antre du Joueur">
+      <img src="images/logonbg.png" alt="L'Antre du Joueur – Logo" class="hero-logo-img" />
+    </div>
+
+    <p class="hero-sub">
+      Une association unique en France, réunissant des passionnés de jeux de société
+      depuis 2002, nichée à 1&nbsp;900&nbsp;m d'altitude à Valmeinier, en Savoie.
+    </p>
+
+    <div class="hero-badges">
+      <span class="badge">🏔️ Valmeinier, Savoie</span>
+      <span class="badge">🎲 Des centaines de jeux</span>
+      <span class="badge">👨‍👩‍👧‍👦 Tous publics</span>
+      <span class="badge">🤝 Association bénévole</span>
+    </div>
+
+    <div class="hero-cta">
+      <a href="#sejours" class="btn-primary">🗓️ Voir les séjours</a>
+      <a href="#histoire" class="btn-outline">📖 Notre histoire</a>
+    </div>
+
+    <div class="altitude-pill">
+      🏔️&nbsp; Altitude Jeux · 1 900 m · Valmeinier
+    </div>
+
+    <!-- Décor bas : rochers et tentacules de L'Antre -->
+    <img src="images/antre_bg.png" alt="" aria-hidden="true" class="hero-antre-bg" />
+  </section>
+
+  <!-- ===== HISTOIRE ===== -->
+  <section id="histoire">
+    <div class="container">
+      <p class="section-label reveal">Notre histoire</p>
+      <h2 class="section-title reveal">Une <em>aventure</em> née<br>de la passion du jeu</h2>
+      <p class="section-intro reveal">
+        Depuis 2002, l'ADJ est bien plus qu'une association : c'est un lieu de vie, de partage et de découverte autour du jeu de société, ouvert à toutes et à tous, au cœur des Alpes.
+      </p>
+
+      <div class="histoire-grid">
+        <div class="histoire-text reveal">
+          <p><strong>L'Antre du Joueur</strong> est une structure ludique œuvrant pour le jeu de société, créée en 2002 par Stéphane Burgunder. Elle est née d'une conviction simple : le jeu rassemble, enrichit, et crée des liens durables entre les personnes.</p>
+          <p>Ouverte <strong>aux enfants comme aux adultes</strong>, l'association accueille ses membres dans un cadre champêtre exceptionnel, en montagne, à 1&nbsp;900 mètres d'altitude. Valmeinier, station savoyarde au charme authentique, est bien plus qu'un décor : c'est une partie intégrante de l'identité de l'ADJ.</p>
+          <p>L'association compte aujourd'hui <strong>des centaines de joueurs à travers toute la France</strong>, unis par leur amour des jeux de société dans tous leurs styles : jeux de stratégie, coopératifs, de cartes, d'ambiance, pour familles… La ludothèque de l'ADJ est l'une des plus riches et des plus éclectiques de France.</p>
+          <p>Chaque séjour est une fête : des appartements transformés en salles de jeux, accessibles toute la journée et en soirée, au sein de la résidence <strong>Les Hauts de Valmeinier</strong>.</p>
+          <div class="fondateur-card">
+            <div class="fondateur-avatar">SB</div>
+            <div>
+              <h4>Stéphane Burgunder</h4>
+              <p>Fondateur et président de l'ADJ depuis 2002. Grand amoureux de Valmeinier et de sa ludothèque incroyable, il anime l'association avec une énergie et une passion communicatives.</p>
+            </div>
+          </div>
+        </div>
+        <div class="reveal">
+          <div class="histoire-image-wrap">
+            <!-- Remplacer par : <img src="Pictures/jeu1.jpg" alt="Joueurs à l'ADJ" /> -->
+            <div class="img-placeholder">🎲<p>Photo à venir · jeu1.jpg</p></div>
+            <div class="img-caption">🏔️ Valmeinier, 1 900 m</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SÉJOURS ===== -->
+  <section id="sejours">
+    <div class="container">
+      <p class="section-label reveal">Altitude Jeux</p>
+      <h2 class="section-title reveal">Trois <em>rendez-vous</em><br>dans l'année</h2>
+      <p class="section-intro reveal">L'ADJ organise plusieurs séjours ludiques « Altitude Jeux » au fil des saisons, à la résidence Les Hauts de Valmeinier. Des appartements entièrement dédiés au jeu, et la ludothèque de l'association à disposition.</p>
+      <div class="sejours-grid">
+        <div class="sejour-card reveal">
+          <div class="sejour-card-img ete"><!-- <img src="Pictures/jeu2.jpg" alt="Séjour été" /> -->☀️</div>
+          <div class="sejour-card-body">
+            <span class="sejour-tag">Été</span>
+            <h3>Séjour d'Été</h3>
+            <p>Profitez de la montagne savoyarde en pleine saison estivale. Randonnées le matin, parties endiablées l'après-midi et en soirée. La nature et le jeu, un duo parfait.</p>
+          </div>
+        </div>
+        <div class="sejour-card reveal">
+          <div class="sejour-card-img dec"><!-- <img src="Pictures/jeu3.jpg" alt="Séjour décembre" /> -->🌲</div>
+          <div class="sejour-card-body">
+            <span class="sejour-tag">Décembre</span>
+            <h3>Séjour de Décembre</h3>
+            <p>L'ambiance feutrée de l'hiver à la montagne, idéale pour s'installer autour d'une table de jeu. Un séjour magique à l'approche des fêtes, avec la neige pour décor.</p>
+          </div>
+        </div>
+        <div class="sejour-card reveal">
+          <div class="sejour-card-img hiver"><!-- <img src="Pictures/jeu4.jpg" alt="Fin de saison" /> -->⛷️</div>
+          <div class="sejour-card-body">
+            <span class="sejour-tag">Fin de saison</span>
+            <h3>Fin de Saison d'Hiver</h3>
+            <p>Le meilleur des deux mondes : ski sur les pistes de Valmeinier la journée, et jeux de société en soirée. La grande tradition de l'ADJ pour clôturer l'hiver en beauté.</p>
+          </div>
+        </div>
+      </div>
+      <div class="reveal" style="margin-top:2.5rem; text-align:center; opacity:.8; font-size:.95rem; color:var(--brown-light);">
+        📍 Résidence <strong>Les Hauts de Valmeinier</strong> &nbsp;·&nbsp; Jeux accessibles toute la journée et en soirée &nbsp;·&nbsp; Ludothèque de l'ADJ à disposition
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LES JEUX ===== -->
+  <section id="jeux">
+    <div class="container">
+      <p class="section-label reveal">La Ludothèque</p>
+      <h2 class="section-title reveal">Des jeux pour <em>tous</em><br>les goûts</h2>
+      <p class="section-intro reveal">La ludothèque de l'ADJ regroupe quasiment tous les jeux de société existants, dans tous les styles. Une richesse unique, construite avec amour au fil des années.</p>
+      <div class="jeux-grid">
+        <div class="jeu-cat reveal"><div class="icon">🏰</div><h4>Stratégie</h4><p>Carcassonne, Terraforming Mars, Twilight Imperium…</p></div>
+        <div class="jeu-cat reveal"><div class="icon">🤝</div><h4>Coopératifs</h4><p>Pandemic, Spirit Island, Gloomhaven…</p></div>
+        <div class="jeu-cat reveal"><div class="icon">🃏</div><h4>Cartes</h4><p>Dominion, Race for the Galaxy, Hanabi…</p></div>
+        <div class="jeu-cat reveal"><div class="icon">😂</div><h4>Ambiance</h4><p>Concept, Codenames, Time's Up, Dixit…</p></div>
+        <div class="jeu-cat reveal"><div class="icon">👨‍👩‍👧</div><h4>Famille</h4><p>Ticket to Ride, Les Aventuriers du Rail, Catan…</p></div>
+        <div class="jeu-cat reveal"><div class="icon">🐉</div><h4>Jeux de rôle</h4><p>D&amp;D, Pathfinder, Warhammer…</p></div>
+        <div class="jeu-cat reveal"><div class="icon">🧩</div><h4>Puzzles &amp; Réflexion</h4><p>Exit, Unlock!, 7 Wonders…</p></div>
+        <div class="jeu-cat reveal"><div class="icon">🎯</div><h4>Dextérité</h4><p>Klask, Jenga, Crokinole…</p></div>
+      </div>
+      <div class="jeux-highlight reveal">
+        « L'ADJ regroupe quasiment tous les jeux de société existants — depuis les grands classiques jusqu'aux dernières nouveautés, des parties en 15 minutes aux campagnes épiques de plusieurs jours. Il y en a pour chaque joueur, chaque âge, chaque envie. »
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GALERIE ===== -->
+  <section id="galerie">
+    <div class="container">
+      <p class="section-label reveal">Galerie</p>
+      <h2 class="section-title reveal">Des moments <em>inoubliables</em></h2>
+      <p class="section-intro reveal">Aperçu de la vie à l'ADJ — les photos viendront enrichir cette galerie au fil des séjours.</p>
+      <div class="gallery-grid">
+        <!-- Remplacer chaque div par <img src="Pictures/jeuX.jpg" alt="..." class="gallery-item reveal" /> -->
+        <div class="gallery-item reveal">🎲</div>
+        <div class="gallery-item reveal">🏔️</div>
+        <div class="gallery-item reveal">🃏</div>
+        <div class="gallery-item reveal">🤝</div>
+        <div class="gallery-item reveal">♟️</div>
+        <div class="gallery-item reveal">🌲</div>
+        <div class="gallery-item reveal">😄</div>
+      </div>
+      <p class="gallery-caption reveal">✨ Les photos de vos aventures ludiques arrivent bientôt !</p>
+    </div>
+  </section>
+
+  <!-- ===== ÉQUIPE ===== -->
+  <section id="equipe">
+    <div class="container">
+      <p class="section-label reveal">Bénévoles &amp; Passionnés</p>
+      <h2 class="section-title reveal">Une équipe qui <em>aime</em><br>ce qu'elle fait</h2>
+      <p class="section-intro reveal">L'ADJ vit grâce à l'engagement de ses bénévoles, tous passionnés de jeu et amoureux de Valmeinier. Merci à chacun d'entre eux.</p>
+      <div class="equipe-grid reveal">
+        <div class="benevole-chip"><div class="av">SB</div><span>Stéphane · Fondateur &amp; Président</span></div>
+        <div class="benevole-chip"><div class="av green">M</div><span>Michel</span></div>
+        <div class="benevole-chip"><div class="av">F</div><span>Fabrice</span></div>
+        <div class="benevole-chip"><div class="av green">JJ</div><span>Jean-Jacques</span></div>
+        <div class="benevole-chip"><div class="av">Flo</div><span>Flo</span></div>
+        <div class="benevole-chip"><div class="av green">D</div><span>Duncan</span></div>
+        <div class="benevole-chip" style="background:rgba(200,119,42,.1);border-color:rgba(200,119,42,.3);">
+          <div class="av" style="background:var(--amber-deep);">+</div>
+          <span>Et bien d'autres…</span>
+        </div>
+      </div>
+      <div class="equipe-cta-block reveal">
+        <div>
+          <h3>Rejoignez l'aventure !</h3>
+          <p>L'ADJ est une association ouverte à toutes et à tous. Que vous soyez joueur débutant ou confirmé, adulte ou enfant, vous êtes le bienvenu à Valmeinier.</p>
+        </div>
+        <a href="#infos" class="btn-white">📍 Informations pratiques ›</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== INFOS PRATIQUES ===== -->
+  <section id="infos">
+    <div class="container">
+      <p class="section-label reveal">Informations pratiques</p>
+      <h2 class="section-title reveal">Venez nous <em>retrouver</em></h2>
+      <p class="section-intro reveal">Tout ce qu'il faut savoir pour rejoindre l'ADJ et participer aux séjours Altitude Jeux à Valmeinier.</p>
+      <div class="infos-grid">
+        <div>
+          <div class="info-card reveal">
+            <h3>🗺️ Coordonnées</h3>
+            <div class="info-row">
+              <div class="info-icon">📍</div>
+              <div class="info-row-text"><strong>Adresse</strong><p>L'Antre du Joueur<br>220 Place de Roche Noire<br>73450 Valmeinier — Savoie, France</p></div>
+            </div>
+            <div class="info-row">
+              <div class="info-icon">🏨</div>
+              <div class="info-row-text"><strong>Lieu des séjours</strong><p>Résidence <strong>Les Hauts de Valmeinier</strong><br>Appartements transformés en salles de jeux</p></div>
+            </div>
+            <div class="info-row">
+              <div class="info-icon">🏔️</div>
+              <div class="info-row-text"><strong>Altitude</strong><p>1 900 m · Station de Valmeinier, Savoie</p></div>
+            </div>
+          </div>
+          <div class="info-card reveal" style="margin-top:1.5rem;">
+            <h3>🔗 Liens utiles</h3>
+            <div class="social-grid">
+              <a href="https://www.facebook.com/people/Lantre-Du-Joueur-Valmeinier/100068738522837/" target="_blank" rel="noopener" class="social-btn">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                Facebook ADJ
+              </a>
+              <a href="https://www.valmeinier.com/" target="_blank" rel="noopener" class="social-btn">🌐 Valmeinier.com</a>
+            </div>
+          </div>
+        </div>
+        <div class="reveal">
+          <div class="info-card">
+            <h3>📅 Quand nous retrouver ?</h3>
+            <div class="info-row"><div class="info-icon">☀️</div><div class="info-row-text"><strong>Été</strong><p>Séjour Altitude Jeux estival — dates à venir</p></div></div>
+            <div class="info-row"><div class="info-icon">🌲</div><div class="info-row-text"><strong>Décembre</strong><p>Séjour Altitude Jeux hivernal — dates à venir</p></div></div>
+            <div class="info-row"><div class="info-icon">⛷️</div><div class="info-row-text"><strong>Fin de saison d'hiver</strong><p>Grand rassemblement de clôture de saison — dates à venir</p></div></div>
+            <div class="info-row"><div class="info-icon">🎲</div><div class="info-row-text"><strong>Sur place</strong><p>Jeux accessibles <strong>toute la journée et en soirée</strong> pendant les séjours. Ludothèque complète à disposition.</p></div></div>
+          </div>
+          <div class="map-placeholder reveal">
+            📍
+            <p>Valmeinier · 73450 Savoie</p>
+            <a href="https://www.valmeinier.com/" target="_blank" rel="noopener">Découvrir Valmeinier →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="images/logonbg.png" alt="L'Antre du Joueur"
+          style="height:64px;width:auto;margin-bottom:1rem;filter:brightness(1.1) drop-shadow(0 2px 8px rgba(0,0,0,.4));" />
+        <p>L'Antre du Joueur est une association de passionnés de jeux de société, fondée en 2002 à Valmeinier, Savoie. Ouverte à tous, depuis les enfants jusqu'aux adultes.</p>
+        <div style="margin-top:1.2rem;display:flex;gap:.8rem;">
+          <a href="https://www.facebook.com/people/Lantre-Du-Joueur-Valmeinier/100068738522837/" target="_blank" rel="noopener" style="color:var(--amber);font-size:.85rem;font-weight:600;font-family:'Cinzel',serif;">Facebook →</a>
+          <a href="https://www.valmeinier.com/" target="_blank" rel="noopener" style="color:var(--amber);font-size:.85rem;font-weight:600;font-family:'Cinzel',serif;">Valmeinier.com →</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#histoire">Notre histoire</a></li>
+          <li><a href="#sejours">Les séjours Altitude Jeux</a></li>
+          <li><a href="#jeux">La ludothèque</a></li>
+          <li><a href="#galerie">Galerie</a></li>
+          <li><a href="#equipe">L'équipe</a></li>
+          <li><a href="#infos">Informations pratiques</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="#">220 Place de Roche Noire</a></li>
+          <li><a href="#">73450 Valmeinier</a></li>
+          <li><a href="#">Savoie, France</a></li>
+          <li style="margin-top:.8rem;"><a href="https://www.facebook.com/people/Lantre-Du-Joueur-Valmeinier/100068738522837/" target="_blank" rel="noopener">Page Facebook →</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 L'Antre du Joueur · Association loi 1901 · Valmeinier, Savoie</span>
+      <span>Fondée en 2002 par Stéphane Burgunder &nbsp;🎲&nbsp; Tous droits réservés</span>
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>
