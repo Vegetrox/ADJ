@@ -1,367 +1,849 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ADJ – L'Antre du Joueur · Valmeinier</title>
+/* =====================================================
+   ADJ – L'Antre du Joueur · style.css
+   ===================================================== */
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Cinzel:wght@400;600;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400;1,600&family=Uncial+Antiqua&display=swap" rel="stylesheet" />
+/* ===== VARIABLES & RESET ===== */
+:root {
+  --cream:      #fdf6ec;
+  --warm:       #f5e9d6;
+  --amber:      #c8772a;
+  --amber-deep: #a05e18;
+  --forest:     #3a5a40;
+  --forest-mid: #4e7a56;
+  --brown:      #5c3d1e;
+  --brown-light:#8b5e30;
+  --charcoal:   #1a1208;
+  --text:       #1e1410;
+  --text-mid:   #3a2a18;
+  --white:      #fff;
+  --shadow:     rgba(44,32,23,.15);
 
-  <!-- Feuille de style -->
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
+  --font-display: 'Cinzel', 'IM Fell English', Georgia, serif;
+  --font-epic:    'Uncial Antiqua', 'IM Fell English', serif;
+  --font-body:    'Crimson Pro', Georgia, serif;
+  --font-accent:  'IM Fell English', Georgia, serif;
+}
 
-  <!-- ===== HEADER ===== -->
-  <header id="site-header">
-    <div class="logo">
-      <img src="images/logonbg.png" alt="L'Antre du Joueur" class="logo-img" />
-      <div class="logo-text">
-        L'Antre du Joueur
-        <small>Valmeinier · Savoie</small>
-      </div>
-    </div>
-    <nav>
-      <a href="#histoire">Histoire</a>
-      <a href="#sejours">Séjours</a>
-      <a href="#jeux">Les Jeux</a>
-      <a href="#galerie">Galerie</a>
-      <a href="#equipe">Équipe</a>
-      <a href="#infos" class="nav-cta">Nous rejoindre</a>
-    </nav>
-    <div class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </div>
-  </header>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
 
-  <!-- ===== HERO ===== -->
-  <section class="hero" id="accueil">
+body {
+  font-family: var(--font-body);
+  background: var(--cream);
+  color: var(--text);
+  line-height: 1.75;
+  overflow-x: hidden;
+  font-size: 1.08rem;
+}
 
-    <!-- D20 #1 -->
-    <svg class="hero-deco" aria-hidden="true" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <polygon points="40,4 76,24 76,56 40,76 4,56 4,24" stroke="#5c3d1e" stroke-width="2.5" fill="rgba(200,119,42,0.12)"/>
-      <polygon points="40,4 76,24 40,38" stroke="#5c3d1e" stroke-width="1.5" fill="rgba(200,119,42,0.08)"/>
-      <polygon points="40,4 4,24 40,38" stroke="#5c3d1e" stroke-width="1.5" fill="rgba(200,119,42,0.06)"/>
-      <polygon points="76,24 76,56 40,38" stroke="#5c3d1e" stroke-width="1.5" fill="rgba(200,119,42,0.05)"/>
-      <text x="40" y="55" text-anchor="middle" font-size="18" fill="#5c3d1e" font-family="Cinzel,serif" font-weight="700">20</text>
-    </svg>
+img { max-width: 100%; display: block; }
+a   { color: inherit; text-decoration: none; }
 
-    <!-- Meeple #2 -->
-    <svg class="hero-deco" aria-hidden="true" viewBox="0 0 50 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="25" cy="12" r="9" stroke="#5c3d1e" stroke-width="2.2" fill="rgba(200,119,42,0.1)"/>
-      <path d="M10,30 Q5,22 14,20 Q18,28 25,28 Q32,28 36,20 Q45,22 40,30 L36,48 L30,48 L30,38 L20,38 L20,48 L14,48 Z" stroke="#5c3d1e" stroke-width="2" fill="rgba(200,119,42,0.1)" stroke-linejoin="round"/>
-      <path d="M14,48 L10,68 L20,68 L25,55 L30,68 L40,68 L36,48" stroke="#5c3d1e" stroke-width="2" fill="rgba(200,119,42,0.08)" stroke-linejoin="round"/>
-    </svg>
+/* ===== HEADER / NAV ===== */
+header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(253,246,236,.93);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(200,119,42,.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .9rem 2.5rem;
+  transition: box-shadow .3s;
+}
+header.scrolled { box-shadow: 0 4px 24px var(--shadow); }
 
-    <!-- D12 #3 -->
-    <svg class="hero-deco" aria-hidden="true" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <polygon points="40,4 76,24 76,56 40,76 4,56 4,24" stroke="#3a5a40" stroke-width="2.5" fill="rgba(58,90,64,0.08)"/>
-      <polygon points="40,4 76,24 40,38" stroke="#3a5a40" stroke-width="1.5" fill="rgba(58,90,64,0.06)"/>
-      <polygon points="4,24 40,38 4,56" stroke="#3a5a40" stroke-width="1.5" fill="rgba(58,90,64,0.05)"/>
-      <polygon points="76,24 76,56 40,38" stroke="#3a5a40" stroke-width="1.5" fill="rgba(58,90,64,0.04)"/>
-      <text x="40" y="55" text-anchor="middle" font-size="16" fill="#3a5a40" font-family="Cinzel,serif" font-weight="700">12</text>
-    </svg>
+.logo {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+}
+.logo-img {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+  mix-blend-mode: multiply;
+  border-radius: 6px;
+}
+.logo-text {
+  font-family: 'Cinzel', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--brown);
+  line-height: 1.2;
+}
+.logo-text small {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: .72rem;
+  color: var(--brown-light);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
 
-    <!-- Meeple #4 -->
-    <svg class="hero-deco" aria-hidden="true" viewBox="0 0 50 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="25" cy="12" r="9" stroke="#a05e18" stroke-width="2.2" fill="rgba(160,94,24,0.1)"/>
-      <path d="M10,30 Q5,22 14,20 Q18,28 25,28 Q32,28 36,20 Q45,22 40,30 L36,48 L30,48 L30,38 L20,38 L20,48 L14,48 Z" stroke="#a05e18" stroke-width="2" fill="rgba(160,94,24,0.08)" stroke-linejoin="round"/>
-      <path d="M14,48 L10,68 L20,68 L25,55 L30,68 L40,68 L36,48" stroke="#a05e18" stroke-width="2" fill="rgba(160,94,24,0.06)" stroke-linejoin="round"/>
-    </svg>
+nav { display: flex; gap: 2rem; align-items: center; }
+nav a {
+  font-size: .88rem;
+  font-weight: 600;
+  color: var(--text-mid);
+  letter-spacing: .06em;
+  position: relative;
+  padding-bottom: 3px;
+  font-family: 'Cinzel', serif;
+}
+nav a::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0;
+  width: 0; height: 2px;
+  background: var(--amber);
+  transition: width .3s;
+}
+nav a:hover::after { width: 100%; }
 
-    <!-- D6 #5 -->
-    <svg class="hero-deco" aria-hidden="true" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="6" y="6" width="48" height="48" rx="10" stroke="#5c3d1e" stroke-width="2.5" fill="rgba(200,119,42,0.08)"/>
-      <circle cx="20" cy="20" r="4" fill="#5c3d1e"/>
-      <circle cx="40" cy="20" r="4" fill="#5c3d1e"/>
-      <circle cx="20" cy="40" r="4" fill="#5c3d1e"/>
-      <circle cx="40" cy="40" r="4" fill="#5c3d1e"/>
-    </svg>
+.nav-cta {
+  background: var(--amber);
+  color: var(--white) !important;
+  padding: .5rem 1.3rem;
+  border-radius: 50px;
+  font-weight: 700 !important;
+  transition: background .2s, transform .2s;
+  box-shadow: 0 3px 12px rgba(200,119,42,.35);
+}
+.nav-cta:hover { background: var(--amber-deep); transform: translateY(-1px); }
+.nav-cta::after { display: none !important; }
 
-    <!-- D8 #6 -->
-    <svg class="hero-deco" aria-hidden="true" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <polygon points="40,4 76,24 76,56 40,76 4,56 4,24" stroke="#5c3d1e" stroke-width="2" fill="rgba(200,119,42,0.07)"/>
-      <text x="40" y="48" text-anchor="middle" font-size="20" fill="#5c3d1e" font-family="Cinzel,serif" font-weight="700">8</text>
-    </svg>
+/* ===== HERO BANNER ===== */
+.hero {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 5rem 2rem 3rem;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(160deg, #fdf6ec 0%, #f0e0c0 55%, #d9b98a 100%);
+}
 
-    <!-- Meeple #7 -->
-    <svg class="hero-deco" aria-hidden="true" viewBox="0 0 50 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="25" cy="12" r="9" stroke="#3a5a40" stroke-width="2" fill="rgba(58,90,64,0.1)"/>
-      <path d="M10,30 Q5,22 14,20 Q18,28 25,28 Q32,28 36,20 Q45,22 40,30 L36,48 L30,48 L30,38 L20,38 L20,48 L14,48 Z" stroke="#3a5a40" stroke-width="2" fill="rgba(58,90,64,0.08)" stroke-linejoin="round"/>
-      <path d="M14,48 L10,68 L20,68 L25,55 L30,68 L40,68 L36,48" stroke="#3a5a40" stroke-width="2" fill="rgba(58,90,64,0.06)" stroke-linejoin="round"/>
-    </svg>
+/* Décor bas du bandeau héro */
+.hero-antre-bg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  max-height: 38%;
+  object-fit: cover;
+  object-position: top center;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  opacity: .75;
+}
 
-    <!-- Logo principal centré -->
-    <div class="hero-logo-wrap" aria-label="L'Antre du Joueur">
-      <img src="images/logonbg.png" alt="L'Antre du Joueur – Logo" class="hero-logo-img" />
-    </div>
+/* SVG dés et meeples flottants */
+.hero-deco {
+  position: absolute;
+  opacity: .18;
+  animation: float 6s ease-in-out infinite;
+  pointer-events: none;
+}
+.hero-deco:nth-child(1)  { top: 12%; left:  6%; animation-delay: 0s;   width: 64px; }
+.hero-deco:nth-child(2)  { top: 20%; right:  6%; animation-delay: 1.8s; width: 44px; }
+.hero-deco:nth-child(3)  { top: 58%; left:  3%; animation-delay: 3.2s; width: 72px; }
+.hero-deco:nth-child(4)  { top: 52%; right:  4%; animation-delay: 2.1s; width: 52px; }
+.hero-deco:nth-child(5)  { top: 78%; left: 16%; animation-delay: 4.5s; width: 38px; }
+.hero-deco:nth-child(6)  { top: 30%; left: 20%; animation-delay: 1s;   width: 36px; }
+.hero-deco:nth-child(7)  { top: 70%; right: 15%; animation-delay: 3.8s; width: 48px; }
 
-    <p class="hero-sub">
-      Une association unique en France, réunissant des passionnés de jeux de société
-      depuis 2002, nichée à 1&nbsp;900&nbsp;m d'altitude à Valmeinier, en Savoie.
-    </p>
+@keyframes float {
+  0%,100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-18px) rotate(8deg); }
+}
 
-    <div class="hero-badges">
-      <span class="badge">🏔️ Valmeinier, Savoie</span>
-      <span class="badge">🎲 Des centaines de jeux</span>
-      <span class="badge">👨‍👩‍👧‍👦 Tous publics</span>
-      <span class="badge">🤝 Association bénévole</span>
-    </div>
+/* Hero logo */
+.hero-logo-wrap {
+  animation: fadeUp .9s .05s both;
+  margin-bottom: .5rem;
+  position: relative;
+  z-index: 1;
+}
+.hero-logo-img {
+  width: clamp(200px, 28vw, 360px);
+  height: auto;
+  filter: drop-shadow(0 8px 32px rgba(92,61,30,.35));
+  mix-blend-mode: multiply;
+}
 
-    <div class="hero-cta">
-      <a href="https://leshautsdevalmeinier.fr/" target="_blank" rel="noopener" class="btn-primary">🗓️ Voir les séjours</a>
-      <a href="#histoire" class="btn-outline">📖 Notre histoire</a>
-    </div>
+.hero-eyebrow { display: none; }
+.hero-title   { display: none; }
 
-    <div class="altitude-pill">
-      🏔️&nbsp; Altitude Jeux · 1 900 m · Valmeinier
-    </div>
+.hero-sub {
+  margin-top: .8rem;
+  font-size: clamp(1.05rem, 2.2vw, 1.18rem);
+  color: var(--text-mid);
+  max-width: 560px;
+  font-weight: 400;
+  animation: fadeUp .9s .2s both;
+  font-family: 'Crimson Pro', serif;
+  position: relative;
+  z-index: 1;
+}
 
-    <!-- Décor bas : rochers et tentacules de L'Antre -->
-    <img src="images/antre_bg.png" alt="" aria-hidden="true" class="hero-antre-bg" />
-  </section>
+.hero-badges {
+  display: flex;
+  gap: .8rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2rem;
+  animation: fadeUp .9s .3s both;
+  position: relative;
+  z-index: 1;
+}
+.badge {
+  background: var(--white);
+  border: 1.5px solid rgba(200,119,42,.3);
+  border-radius: 50px;
+  padding: .4rem 1rem;
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--brown);
+  display: flex; align-items: center; gap: .4rem;
+  box-shadow: 0 2px 10px var(--shadow);
+}
 
-  <!-- ===== HISTOIRE ===== -->
-  <section id="histoire">
-    <div class="container">
-      <p class="section-label reveal">Notre histoire</p>
-      <h2 class="section-title reveal">Une <em>aventure</em> née<br>de la passion du jeu</h2>
-      <p class="section-intro reveal">
-        Depuis 2002, l'ADJ est bien plus qu'une association : c'est un lieu de vie, de partage et de découverte autour du jeu de société, ouvert à toutes et à tous, au cœur des Alpes.
-      </p>
+.hero-cta {
+  margin-top: 2.4rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  animation: fadeUp .9s .4s both;
+  position: relative;
+  z-index: 1;
+}
 
-      <div class="histoire-grid">
-        <div class="histoire-text reveal">
-          <p><strong>L'Antre du Joueur</strong> est une structure ludique œuvrant pour le jeu de société, créée en 2002 par Stéphane Burgunder. Elle est née d'une conviction simple : le jeu rassemble, enrichit, et crée des liens durables entre les personnes.</p>
-          <p>Ouverte <strong>aux enfants comme aux adultes</strong>, l'association accueille ses membres dans un cadre champêtre exceptionnel, en montagne, à 1&nbsp;900 mètres d'altitude. Valmeinier, station savoyarde au charme authentique, est bien plus qu'un décor : c'est une partie intégrante de l'identité de l'ADJ.</p>
-          <p>L'association compte aujourd'hui <strong>des centaines de joueurs à travers toute la France</strong>, unis par leur amour des jeux de société dans tous leurs styles : jeux de stratégie, coopératifs, de cartes, d'ambiance, pour familles… La ludothèque de l'ADJ est l'une des plus riches et des plus éclectiques de France.</p>
-          <p>Chaque séjour est une fête : des appartements transformés en salles de jeux, accessibles toute la journée et en soirée, au sein de la résidence <strong>Les Hauts de Valmeinier</strong>.</p>
-          <div class="fondateur-card">
-            <div class="fondateur-avatar">SB</div>
-            <div>
-              <h4>Stéphane Burgunder</h4>
-              <p>Fondateur et président de l'ADJ depuis 2002. Grand amoureux de Valmeinier et de sa ludothèque incroyable, il anime l'association avec une énergie et une passion communicatives.</p>
-            </div>
-          </div>
-        </div>
-        <div class="reveal">
-          <div class="histoire-image-wrap">
-            <!-- Remplacer par : <img src="Pictures/jeu1.jpg" alt="Joueurs à l'ADJ" /> -->
-            <div class="img-placeholder">🎲<p>Photo à venir · jeu1.jpg</p></div>
-            <div class="img-caption">🏔️ Valmeinier, 1 900 m</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+.btn-primary {
+  background: var(--amber);
+  color: var(--white);
+  padding: .85rem 2.2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: .95rem;
+  letter-spacing: .03em;
+  box-shadow: 0 6px 24px rgba(200,119,42,.4);
+  transition: background .2s, transform .2s, box-shadow .2s;
+  display: inline-flex; align-items: center; gap: .5rem;
+}
+.btn-primary:hover {
+  background: var(--amber-deep);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 32px rgba(200,119,42,.5);
+}
 
-  <!-- ===== SÉJOURS ===== -->
-  <section id="sejours">
-    <div class="container">
-      <p class="section-label reveal">Altitude Jeux</p>
-      <h2 class="section-title reveal">Trois <em>rendez-vous</em><br>dans l'année</h2>
-      <p class="section-intro reveal">L'ADJ organise plusieurs séjours ludiques « Altitude Jeux » au fil des saisons, à la résidence Les Hauts de Valmeinier. Des appartements entièrement dédiés au jeu, et la ludothèque de l'association à disposition.</p>
-      <div class="sejours-grid">
-        <div class="sejour-card reveal">
-          <div class="sejour-card-img ete"><!-- <img src="Pictures/jeu2.jpg" alt="Séjour été" /> -->☀️</div>
-          <div class="sejour-card-body">
-            <span class="sejour-tag">Été</span>
-            <h3>Séjour d'Été</h3>
-            <p>Profitez de la montagne savoyarde en pleine saison estivale. Randonnées le matin, parties endiablées l'après-midi et en soirée. La nature et le jeu, un duo parfait.</p>
-          </div>
-        </div>
-        <div class="sejour-card reveal">
-          <div class="sejour-card-img dec"><!-- <img src="Pictures/jeu3.jpg" alt="Séjour décembre" /> -->🌲</div>
-          <div class="sejour-card-body">
-            <span class="sejour-tag">Décembre</span>
-            <h3>Séjour de Décembre</h3>
-            <p>L'ambiance feutrée de l'hiver à la montagne, idéale pour s'installer autour d'une table de jeu. Un séjour magique à l'approche des fêtes, avec la neige pour décor.</p>
-          </div>
-        </div>
-        <div class="sejour-card reveal">
-          <div class="sejour-card-img hiver"><!-- <img src="Pictures/jeu4.jpg" alt="Fin de saison" /> -->⛷️</div>
-          <div class="sejour-card-body">
-            <span class="sejour-tag">Fin de saison</span>
-            <h3>Fin de Saison d'Hiver</h3>
-            <p>Le meilleur des deux mondes : ski sur les pistes de Valmeinier la journée, et jeux de société en soirée. La grande tradition de l'ADJ pour clôturer l'hiver en beauté.</p>
-          </div>
-        </div>
-      </div>
-      <div class="reveal" style="margin-top:2.5rem; text-align:center; opacity:.8; font-size:.95rem; color:var(--brown-light);">
-        📍 Résidence <strong>Les Hauts de Valmeinier</strong> &nbsp;·&nbsp; Jeux accessibles toute la journée et en soirée &nbsp;·&nbsp; Ludothèque de l'ADJ à disposition
-      </div>
-    </div>
-  </section>
+.btn-outline {
+  border: 2px solid var(--forest);
+  color: var(--forest);
+  padding: .85rem 2.2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: .95rem;
+  transition: background .2s, color .2s, transform .2s;
+  display: inline-flex; align-items: center; gap: .5rem;
+}
+.btn-outline:hover {
+  background: var(--forest);
+  color: var(--white);
+  transform: translateY(-2px);
+}
 
-  <!-- ===== LES JEUX ===== -->
-  <section id="jeux">
-    <div class="container">
-      <p class="section-label reveal">La Ludothèque</p>
-      <h2 class="section-title reveal">Des jeux pour <em>tous</em><br>les goûts</h2>
-      <p class="section-intro reveal">La ludothèque de l'ADJ regroupe quasiment tous les jeux de société existants, dans tous les styles. Une richesse unique, construite avec amour au fil des années.</p>
-      <div class="jeux-grid">
-        <a href="https://www.myludo.fr/#!/home" target="_blank" rel="noopener" class="jeu-cat reveal"><div class="icon">🏰</div><h4>Stratégie</h4><p>Carcassonne, Terraforming Mars, Twilight Imperium…</p></a>
-        <a href="https://www.myludo.fr/#!/home" target="_blank" rel="noopener" class="jeu-cat reveal"><div class="icon">🤝</div><h4>Coopératifs</h4><p>Pandemic, Spirit Island, Gloomhaven…</p></a>
-        <a href="https://www.myludo.fr/#!/home" target="_blank" rel="noopener" class="jeu-cat reveal"><div class="icon">🃏</div><h4>Cartes</h4><p>Dominion, Race for the Galaxy, Hanabi…</p></a>
-        <a href="https://www.myludo.fr/#!/home" target="_blank" rel="noopener" class="jeu-cat reveal"><div class="icon">😂</div><h4>Ambiance</h4><p>Concept, Codenames, Time's Up, Dixit…</p></a>
-        <a href="https://www.myludo.fr/#!/home" target="_blank" rel="noopener" class="jeu-cat reveal"><div class="icon">👨‍👩‍👧</div><h4>Famille</h4><p>Ticket to Ride, Les Aventuriers du Rail, Catan…</p></a>
-        <a href="https://www.myludo.fr/#!/home" target="_blank" rel="noopener" class="jeu-cat reveal"><div class="icon">🐉</div><h4>Jeux de rôle</h4><p>D&amp;D, Pathfinder, Warhammer…</p></a>
-        <a href="https://www.myludo.fr/#!/home" target="_blank" rel="noopener" class="jeu-cat reveal"><div class="icon">🧩</div><h4>Puzzles &amp; Réflexion</h4><p>Exit, Unlock!, 7 Wonders…</p></a>
-        <a href="https://www.myludo.fr/#!/home" target="_blank" rel="noopener" class="jeu-cat reveal"><div class="icon">🎯</div><h4>Dextérité</h4><p>Klask, Jenga, Crokinole…</p></a>
-      </div>
-      <div class="jeux-highlight reveal">
-        « L'ADJ regroupe quasiment tous les jeux de société existants — depuis les grands classiques jusqu'aux dernières nouveautés, des parties en 15 minutes aux campagnes épiques de plusieurs jours. Il y en a pour chaque joueur, chaque âge, chaque envie. »
-      </div>
-    </div>
-  </section>
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
 
-  <!-- ===== GALERIE ===== -->
-  <section id="galerie">
-    <div class="container">
-      <p class="section-label reveal">Galerie</p>
-      <h2 class="section-title reveal">Des moments <em>inoubliables</em></h2>
-      <p class="section-intro reveal">Aperçu de la vie à l'ADJ — les photos viendront enrichir cette galerie au fil des séjours.</p>
-      <div class="gallery-grid">
-        <!-- Remplacer chaque div par <img src="Pictures/jeuX.jpg" alt="..." class="gallery-item reveal" /> -->
-        <div class="gallery-item reveal">🎲</div>
-        <div class="gallery-item reveal">🏔️</div>
-        <div class="gallery-item reveal">🃏</div>
-        <div class="gallery-item reveal">🤝</div>
-        <div class="gallery-item reveal">♟️</div>
-        <div class="gallery-item reveal">🌲</div>
-        <div class="gallery-item reveal">😄</div>
-      </div>
-      <p class="gallery-caption reveal">✨ Les photos de vos aventures ludiques arrivent bientôt !</p>
-    </div>
-  </section>
+.altitude-pill {
+  margin-top: 2.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  background: rgba(58,90,64,.1);
+  border: 1.5px solid rgba(58,90,64,.25);
+  border-radius: 50px;
+  padding: .45rem 1.1rem;
+  font-size: .82rem;
+  color: var(--forest);
+  font-weight: 600;
+  animation: fadeUp .9s .5s both;
+  position: relative;
+  z-index: 1;
+}
 
-  <!-- ===== ÉQUIPE ===== -->
-  <section id="equipe">
-    <div class="container">
-      <p class="section-label reveal">Bénévoles &amp; Passionnés</p>
-      <h2 class="section-title reveal">Une équipe qui <em>aime</em><br>ce qu'elle fait</h2>
-      <p class="section-intro reveal">L'ADJ vit grâce à l'engagement de ses bénévoles, tous passionnés de jeu et amoureux de Valmeinier. Merci à chacun d'entre eux.</p>
-      <div class="equipe-grid reveal">
-        <div class="benevole-chip"><div class="av">SB</div><span>Stéphane · Fondateur &amp; Président</span></div>
-        <div class="benevole-chip"><div class="av green">M</div><span>Michel</span></div>
-        <div class="benevole-chip"><div class="av">F</div><span>Fabrice</span></div>
-        <div class="benevole-chip"><div class="av green">JJ</div><span>Jean-Jacques</span></div>
-        <div class="benevole-chip"><div class="av">Flo</div><span>Flo</span></div>
-        <div class="benevole-chip"><div class="av green">D</div><span>Duncan</span></div>
-        <div class="benevole-chip" style="background:rgba(200,119,42,.1);border-color:rgba(200,119,42,.3);">
-          <div class="av" style="background:var(--amber-deep);">+</div>
-          <span>Et bien d'autres…</span>
-        </div>
-      </div>
-      <div class="equipe-cta-block reveal">
-        <div>
-          <h3>Rejoignez l'aventure !</h3>
-          <p>L'ADJ est une association ouverte à toutes et à tous. Que vous soyez joueur débutant ou confirmé, adulte ou enfant, vous êtes le bienvenu à Valmeinier.</p>
-        </div>
-        <a href="#infos" class="btn-white">📍 Informations pratiques ›</a>
-      </div>
-    </div>
-  </section>
+/* ===== SECTIONS COMMUNES ===== */
+section { padding: 5.5rem 2rem; }
+.container { max-width: 1100px; margin: 0 auto; }
 
-  <!-- ===== INFOS PRATIQUES ===== -->
-  <section id="infos">
-    <div class="container">
-      <p class="section-label reveal">Informations pratiques</p>
-      <h2 class="section-title reveal">Venez nous <em>retrouver</em></h2>
-      <p class="section-intro reveal">Tout ce qu'il faut savoir pour rejoindre l'ADJ et participer aux séjours Altitude Jeux à Valmeinier.</p>
-      <div class="infos-grid">
-        <div>
-          <div class="info-card reveal">
-            <h3>🗺️ Coordonnées</h3>
-            <div class="info-row">
-              <div class="info-icon">📍</div>
-              <div class="info-row-text"><strong>Adresse</strong><p>L'Antre du Joueur<br>220 Place de Roche Noire<br>73450 Valmeinier — Savoie, France</p></div>
-            </div>
-            <div class="info-row">
-              <div class="info-icon">🏨</div>
-              <div class="info-row-text"><strong>Lieu des séjours</strong><p>Résidence <strong>Les Hauts de Valmeinier</strong><br>Appartements transformés en salles de jeux</p></div>
-            </div>
-            <div class="info-row">
-              <div class="info-icon">🏔️</div>
-              <div class="info-row-text"><strong>Altitude</strong><p>1 900 m · Station de Valmeinier, Savoie</p></div>
-            </div>
-          </div>
-          <div class="info-card reveal" style="margin-top:1.5rem;">
-            <h3>🔗 Liens utiles</h3>
-            <div class="social-grid">
-              <a href="https://www.facebook.com/people/Lantre-Du-Joueur-Valmeinier/100068738522837/" target="_blank" rel="noopener" class="social-btn">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-                Facebook ADJ
-              </a>
-              <a href="https://www.valmeinier.com/" target="_blank" rel="noopener" class="social-btn">🌐 Valmeinier.com</a>
-              <a href="https://boardgamegeek.com/" target="_blank" rel="noopener" class="social-btn">🎲 BoardGameGeek</a>
-              <a href="https://www.myludo.fr/#!/home" target="_blank" rel="noopener" class="social-btn">🃏 MyLudo</a>
-            </div>
-          </div>
-        </div>
-        <div class="reveal">
-          <div class="info-card">
-            <h3>📅 Quand nous retrouver ?</h3>
-            <div class="info-row"><div class="info-icon">☀️</div><div class="info-row-text"><strong>Été</strong><p>Séjour Altitude Jeux estival — dates à venir</p></div></div>
-            <div class="info-row"><div class="info-icon">🌲</div><div class="info-row-text"><strong>Décembre</strong><p>Séjour Altitude Jeux hivernal — dates à venir</p></div></div>
-            <div class="info-row"><div class="info-icon">⛷️</div><div class="info-row-text"><strong>Fin de saison d'hiver</strong><p>Grand rassemblement de clôture de saison — dates à venir</p></div></div>
-            <div class="info-row"><div class="info-icon">🎲</div><div class="info-row-text"><strong>Sur place</strong><p>Jeux accessibles <strong>toute la journée et en soirée</strong> pendant les séjours. Ludothèque complète à disposition.</p></div></div>
-          </div>
-          <div class="map-placeholder reveal">
-            📍
-            <p>Valmeinier · 73450 Savoie</p>
-            <a href="https://www.valmeinier.com/" target="_blank" rel="noopener">Découvrir Valmeinier →</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+.section-label {
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--amber);
+  margin-bottom: .4rem;
+  letter-spacing: .04em;
+}
+.section-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.8rem, 4vw, 2.7rem);
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.2;
+  margin-bottom: 1.2rem;
+  letter-spacing: .02em;
+}
+.section-title em {
+  font-style: italic;
+  color: var(--amber);
+  font-family: 'IM Fell English', serif;
+  font-size: 1.12em;
+}
+.section-intro {
+  font-size: 1.1rem;
+  color: var(--text-mid);
+  max-width: 640px;
+  line-height: 1.85;
+  font-family: 'Crimson Pro', serif;
+}
 
-  <!-- ===== FOOTER ===== -->
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <img src="images/logonbg.png" alt="L'Antre du Joueur"
-          style="height:64px;width:auto;margin-bottom:1rem;filter:brightness(1.1) drop-shadow(0 2px 8px rgba(0,0,0,.4));" />
-        <p>L'Antre du Joueur est une association de passionnés de jeux de société, fondée en 2002 à Valmeinier, Savoie. Ouverte à tous, depuis les enfants jusqu'aux adultes.</p>
-        <div style="margin-top:1.2rem;display:flex;gap:.8rem;">
-          <a href="https://www.facebook.com/people/Lantre-Du-Joueur-Valmeinier/100068738522837/" target="_blank" rel="noopener" style="color:var(--amber);font-size:.85rem;font-weight:600;font-family:'Cinzel',serif;">Facebook →</a>
-          <a href="https://www.valmeinier.com/" target="_blank" rel="noopener" style="color:var(--amber);font-size:.85rem;font-weight:600;font-family:'Cinzel',serif;">Valmeinier.com →</a>
-          <a href="https://boardgamegeek.com/" target="_blank" rel="noopener" style="color:var(--amber);font-size:.85rem;font-weight:600;font-family:'Cinzel',serif;">BoardGameGeek →</a>
-          <a href="https://www.myludo.fr/#!/home" target="_blank" rel="noopener" style="color:var(--amber);font-size:.85rem;font-weight:600;font-family:'Cinzel',serif;">MyLudo →</a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>Navigation</h4>
-        <ul>
-          <li><a href="#histoire">Notre histoire</a></li>
-          <li><a href="#sejours">Les séjours Altitude Jeux</a></li>
-          <li><a href="#jeux">La ludothèque</a></li>
-          <li><a href="#galerie">Galerie</a></li>
-          <li><a href="#equipe">L'équipe</a></li>
-          <li><a href="#infos">Informations pratiques</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="#">220 Place de Roche Noire</a></li>
-          <li><a href="#">73450 Valmeinier</a></li>
-          <li><a href="#">Savoie, France</a></li>
-          <li style="margin-top:.8rem;"><a href="https://www.facebook.com/people/Lantre-Du-Joueur-Valmeinier/100068738522837/" target="_blank" rel="noopener">Page Facebook →</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2025 L'Antre du Joueur · Association loi 1901 · Valmeinier, Savoie</span>
-      <span>Fondée en 2002 par Stéphane Burgunder &nbsp;🎲&nbsp; Tous droits réservés</span>
-    </div>
-  </footer>
+/* ===== HISTOIRE ===== */
+#histoire { background: var(--white); }
 
-  <!-- Script -->
-  <script src="script.js"></script>
-</body>
-</html>
+.histoire-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-top: 3rem;
+}
+.histoire-text p {
+  margin-bottom: 1.1rem;
+  font-size: 1.08rem;
+  color: var(--text);
+  line-height: 1.85;
+  font-family: 'Crimson Pro', serif;
+}
+.histoire-image-wrap {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(92,61,30,.2);
+}
+.histoire-image-wrap img {
+  width: 100%; height: 420px;
+  object-fit: cover;
+}
+.img-placeholder {
+  width: 100%; height: 420px;
+  background: linear-gradient(135deg, var(--warm), #e8c990);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: .8rem;
+  color: var(--brown-light);
+  font-size: 3rem;
+}
+.img-placeholder p { font-size: .9rem; font-family: var(--font-body); }
+
+.img-caption {
+  position: absolute;
+  bottom: 1.2rem; left: 1.2rem;
+  background: rgba(253,246,236,.95);
+  border-radius: 10px;
+  padding: .5rem 1rem;
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--brown);
+}
+
+.fondateur-card {
+  background: linear-gradient(135deg, var(--warm), var(--cream));
+  border: 1.5px solid rgba(200,119,42,.2);
+  border-radius: 16px;
+  padding: 1.6rem 2rem;
+  margin-top: 2rem;
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+}
+.fondateur-avatar {
+  width: 54px; height: 54px;
+  background: var(--amber);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  color: var(--white);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+.fondateur-card h4 {
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  color: var(--text);
+  margin-bottom: .25rem;
+}
+.fondateur-card p {
+  font-size: 1rem;
+  color: var(--text-mid);
+  font-family: 'Crimson Pro', serif;
+}
+
+/* ===== SÉJOURS ===== */
+#sejours { background: var(--cream); }
+
+.sejours-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.8rem;
+  margin-top: 3rem;
+}
+.sejour-card {
+  background: var(--white);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px var(--shadow);
+  transition: transform .3s, box-shadow .3s;
+  border: 1px solid rgba(200,119,42,.1);
+}
+.sejour-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(92,61,30,.18);
+}
+.sejour-card-img {
+  height: 190px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 3.2rem;
+  position: relative;
+  overflow: hidden;
+}
+.sejour-card-img.ete   { background: linear-gradient(135deg, #f7d58b, #e8a84b); }
+.sejour-card-img.hiver { background: linear-gradient(135deg, #c8dff5, #6fa8d4); }
+.sejour-card-img.dec   { background: linear-gradient(135deg, #b8e0c8, #4e9e6a); }
+.sejour-card-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  position: absolute; inset: 0;
+}
+.sejour-card-body { padding: 1.5rem; }
+.sejour-card-body h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.15rem;
+  color: var(--text);
+  margin-bottom: .6rem;
+}
+.sejour-card-body p {
+  font-size: 1rem;
+  color: var(--text-mid);
+  line-height: 1.75;
+  font-family: 'Crimson Pro', serif;
+}
+.sejour-tag {
+  display: inline-block;
+  background: rgba(200,119,42,.12);
+  color: var(--amber-deep);
+  border-radius: 50px;
+  padding: .2rem .8rem;
+  font-size: .75rem;
+  font-weight: 700;
+  margin-bottom: .8rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  font-family: 'Cinzel', serif;
+}
+
+/* ===== JEUX / LUDOTHÈQUE ===== */
+#jeux {
+  background: var(--brown);
+  color: var(--cream);
+  overflow: hidden;
+  position: relative;
+}
+#jeux::before {
+  content: '';
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: rgba(200,119,42,.12);
+}
+#jeux .section-title { color: var(--cream); }
+#jeux .section-intro { color: rgba(253,246,236,.75); }
+#jeux .section-label { color: var(--amber); }
+
+.jeux-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  margin-top: 3rem;
+}
+.jeu-cat {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 16px;
+  padding: 1.6rem 1.2rem;
+  text-align: center;
+  transition: background .3s, transform .3s;
+  cursor: pointer;
+  text-decoration: none;
+  display: block;
+}
+.jeu-cat:hover { background: rgba(200,119,42,.18); transform: translateY(-4px); }
+.jeu-cat .icon { font-size: 2.5rem; margin-bottom: .8rem; }
+.jeu-cat h4 {
+  font-family: 'Cinzel', serif;
+  font-size: .95rem;
+  color: var(--cream);
+  margin-bottom: .4rem;
+  letter-spacing: .04em;
+}
+.jeu-cat p {
+  font-size: .9rem;
+  color: rgba(253,246,236,.65);
+  line-height: 1.6;
+  font-family: 'Crimson Pro', serif;
+}
+.jeux-highlight {
+  margin-top: 3.5rem;
+  background: rgba(200,119,42,.12);
+  border-left: 4px solid var(--amber);
+  border-radius: 0 16px 16px 0;
+  padding: 1.6rem 2rem;
+  font-size: 1.1rem;
+  color: rgba(253,246,236,.9);
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  line-height: 1.85;
+}
+
+/* ===== GALERIE ===== */
+#galerie { background: var(--warm); }
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  margin-top: 3rem;
+}
+.gallery-item {
+  border-radius: 14px;
+  overflow: hidden;
+  aspect-ratio: 1;
+  background: linear-gradient(135deg, #e8c990, #d4a96a);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2.2rem;
+  cursor: pointer;
+  transition: transform .3s, box-shadow .3s;
+  box-shadow: 0 4px 18px rgba(92,61,30,.12);
+  position: relative;
+}
+.gallery-item img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  position: absolute; inset: 0;
+}
+.gallery-item:hover { transform: scale(1.04); box-shadow: 0 10px 30px rgba(92,61,30,.22); }
+.gallery-item:first-child {
+  grid-column: span 2;
+  grid-row: span 2;
+  font-size: 3.5rem;
+}
+.gallery-caption {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--brown-light);
+}
+
+/* ===== ÉQUIPE ===== */
+#equipe { background: var(--white); }
+
+.equipe-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin-top: 2.5rem;
+}
+.benevole-chip {
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  background: var(--cream);
+  border: 1.5px solid rgba(200,119,42,.2);
+  border-radius: 50px;
+  padding: .55rem 1.2rem .55rem .7rem;
+  transition: background .2s, transform .2s;
+}
+.benevole-chip:hover { background: var(--warm); transform: scale(1.04); }
+.benevole-chip .av {
+  width: 36px; height: 36px;
+  background: var(--amber);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--white);
+  font-weight: 700;
+  font-size: .9rem;
+  flex-shrink: 0;
+  font-family: 'Cinzel', serif;
+}
+.benevole-chip .av.green { background: var(--forest-mid); }
+.benevole-chip span {
+  font-size: .95rem;
+  font-weight: 600;
+  color: var(--text);
+  font-family: 'Crimson Pro', serif;
+}
+
+.equipe-cta-block {
+  margin-top: 3rem;
+  background: linear-gradient(120deg, var(--amber) 0%, var(--amber-deep) 100%);
+  border-radius: 20px;
+  padding: 2.5rem 3rem;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.equipe-cta-block h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  margin-bottom: .5rem;
+  letter-spacing: .02em;
+}
+.equipe-cta-block p {
+  opacity: .9;
+  font-size: 1rem;
+  max-width: 420px;
+  font-family: 'Crimson Pro', serif;
+}
+.btn-white {
+  background: var(--white);
+  color: var(--amber-deep);
+  padding: .85rem 2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: .95rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: transform .2s, box-shadow .2s;
+  display: inline-flex; align-items: center; gap: .4rem;
+  font-family: 'Cinzel', serif;
+}
+.btn-white:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(0,0,0,.15); }
+
+/* ===== INFOS PRATIQUES ===== */
+#infos { background: var(--cream); }
+
+.infos-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-top: 3rem;
+  align-items: start;
+}
+.info-card {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 2rem 2.2rem;
+  box-shadow: 0 6px 28px var(--shadow);
+  border: 1px solid rgba(200,119,42,.1);
+}
+.info-card h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.15rem;
+  color: var(--text);
+  margin-bottom: 1.2rem;
+  display: flex; align-items: center; gap: .6rem;
+  letter-spacing: .03em;
+}
+.info-row {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: .8rem 0;
+  border-bottom: 1px solid var(--warm);
+}
+.info-row:last-child { border-bottom: none; }
+.info-icon {
+  width: 38px; height: 38px;
+  background: rgba(200,119,42,.1);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+.info-row-text strong {
+  display: block;
+  font-size: .78rem;
+  color: var(--amber-deep);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-bottom: .2rem;
+  font-family: 'Cinzel', serif;
+}
+.info-row-text p {
+  font-size: 1rem;
+  color: var(--text);
+  line-height: 1.65;
+  font-family: 'Crimson Pro', serif;
+}
+.info-row-text a {
+  color: var(--forest);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.info-row-text a:hover { color: var(--amber); }
+
+.social-grid {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  background: var(--cream);
+  border: 1.5px solid rgba(200,119,42,.25);
+  border-radius: 50px;
+  padding: .6rem 1.2rem;
+  font-size: .88rem;
+  font-weight: 600;
+  color: var(--brown);
+  transition: background .2s, transform .2s;
+  font-family: 'Cinzel', serif;
+}
+.social-btn:hover { background: var(--warm); transform: scale(1.04); }
+.social-btn svg { width: 18px; height: 18px; }
+
+.map-placeholder {
+  height: 280px;
+  background: linear-gradient(135deg, #d4e8d8, #a8d4b4);
+  border-radius: 16px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: .8rem;
+  color: var(--forest);
+  font-size: 2.5rem;
+  margin-top: 1.5rem;
+}
+.map-placeholder p {
+  font-size: .9rem;
+  font-family: var(--font-body);
+  opacity: .8;
+}
+.map-placeholder a {
+  font-size: .85rem;
+  font-weight: 700;
+  color: var(--forest);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-family: 'Cinzel', serif;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--charcoal);
+  color: rgba(253,246,236,.7);
+  padding: 3.5rem 2rem 2rem;
+}
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 3rem;
+}
+.footer-brand p {
+  font-size: .95rem;
+  line-height: 1.8;
+  max-width: 320px;
+  font-family: 'Crimson Pro', serif;
+}
+.footer-col h4 {
+  font-family: 'Cinzel', serif;
+  font-size: .9rem;
+  color: var(--cream);
+  margin-bottom: 1rem;
+  letter-spacing: .06em;
+}
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: .6rem; }
+.footer-col ul li a {
+  font-size: .9rem;
+  color: rgba(253,246,236,.6);
+  transition: color .2s;
+  font-family: 'Crimson Pro', serif;
+}
+.footer-col ul li a:hover { color: var(--amber); }
+.footer-bottom {
+  max-width: 1100px;
+  margin: 2.5rem auto 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: .8rem;
+  color: rgba(253,246,236,.4);
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-family: 'Crimson Pro', serif;
+}
+.footer-bottom a { color: var(--amber); }
+
+/* ===== SCROLL REVEAL ===== */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity .7s, transform .7s; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .histoire-grid, .infos-grid { grid-template-columns: 1fr; }
+  .sejours-grid { grid-template-columns: 1fr; }
+  .jeux-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+  .gallery-item:first-child { grid-column: span 1; grid-row: span 1; }
+  .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+  nav { display: none; }
+}
+@media (max-width: 600px) {
+  header { padding: .8rem 1.2rem; }
+  .hero { padding: 5rem 1.2rem 3rem; }
+  section { padding: 4rem 1.2rem; }
+  .equipe-cta-block { padding: 1.8rem; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .jeux-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* Mobile nav toggle */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+}
+.hamburger span {
+  display: block; width: 24px; height: 2px;
+  background: var(--brown);
+  border-radius: 2px;
+  transition: .3s;
+}
+@media (max-width: 900px) { .hamburger { display: flex; } }
