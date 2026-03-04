@@ -129,17 +129,7 @@ nav a:hover::after { width: 100%; }
   background: linear-gradient(160deg, #fdf6ec 0%, #f0e0c0 55%, #d9b98a 100%);
 }
 
-/* Décor bas du bandeau héro */
-.hero-antre-bg {
-  display: block;
-  width: 100%;
-  height: auto;
-  margin-top: 1rem;
-  position: relative;
-  z-index: 0;
-  pointer-events: none;
-  opacity: 0.5;
-}
+/* logo hero */
 
 /* SVG dés et meeples flottants */
 .hero-deco {
@@ -169,7 +159,7 @@ nav a:hover::after { width: 100%; }
   z-index: 2;
 }
 .hero-logo-img {
-  width: clamp(200px, 28vw, 360px);
+  width: clamp(280px, 38vw, 480px);
   height: auto;
   filter: drop-shadow(0 8px 32px rgba(92,61,30,.35));
   mix-blend-mode: multiply;
