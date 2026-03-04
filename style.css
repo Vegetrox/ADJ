@@ -1,3 +1,4 @@
+
 /* =====================================================
    ADJ – L'Antre du Joueur · style.css
    ===================================================== */
@@ -137,12 +138,12 @@ nav a:hover::after { width: 100%; }
   left: 0;
   width: 100%;
   height: auto;
-  max-height: 38%;
+  max-height: 45%;
   object-fit: cover;
   object-position: top center;
   pointer-events: none;
-  mix-blend-mode: multiply;
-  opacity: .75;
+  opacity: .9;
+  z-index: 0;
 }
 
 /* SVG dés et meeples flottants */
@@ -170,7 +171,7 @@ nav a:hover::after { width: 100%; }
   animation: fadeUp .9s .05s both;
   margin-bottom: .5rem;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 .hero-logo-img {
   width: clamp(200px, 28vw, 360px);
@@ -191,7 +192,7 @@ nav a:hover::after { width: 100%; }
   animation: fadeUp .9s .2s both;
   font-family: 'Crimson Pro', serif;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .hero-badges {
@@ -202,7 +203,7 @@ nav a:hover::after { width: 100%; }
   margin-top: 2rem;
   animation: fadeUp .9s .3s both;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 .badge {
   background: var(--white);
@@ -224,7 +225,7 @@ nav a:hover::after { width: 100%; }
   justify-content: center;
   animation: fadeUp .9s .4s both;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .btn-primary {
@@ -280,7 +281,7 @@ nav a:hover::after { width: 100%; }
   font-weight: 600;
   animation: fadeUp .9s .5s both;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 /* ===== SECTIONS COMMUNES ===== */
